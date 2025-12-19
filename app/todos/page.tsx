@@ -8,6 +8,7 @@ import {
     Box, Typography,
 } from "@mui/material";
 import * as uuid from 'uuid';
+import {useMediaQuery} from "@mui/system";
 
 export default function ToDo() {
     const [title, setTitle] = useState("");
@@ -17,6 +18,7 @@ export default function ToDo() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState("");
     const [success, setSuccess] = useState(false);
+    useMediaQuery("(prefers-color-scheme: dark )")
 
     const handleSubmit = async (event: FormEvent) => {
         event.preventDefault();
@@ -65,9 +67,11 @@ export default function ToDo() {
         <Box
             component="form"
             onSubmit={handleSubmit}
-            sx={{ maxWidth: 400, mx: "auto", mt: 4 }}
-        >
-            <Typography variant="h4" content="create a new todo">
+            sx={{ maxWidth: 400, mx: "auto", mt: 4 }}>
+            <Typography
+                variant="h4"
+                content="create a new todo"
+            >
                 create a new todo
             </Typography>
             <TextField
@@ -104,7 +108,7 @@ export default function ToDo() {
                 variant="contained"
                 sx={{ mt: 2 }}
                 disabled={!title}
-            >
+           >
                 Submit
             </Button>
             {
