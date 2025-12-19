@@ -9,6 +9,7 @@ import {
 } from "@mui/material";
 import * as uuid from 'uuid';
 import {useMediaQuery} from "@mui/system";
+import Navbar from "@/app/components/navbar";
 
 export default function ToDo() {
     const [title, setTitle] = useState("");
@@ -64,75 +65,80 @@ export default function ToDo() {
     };
 
     return (
-        <Box
-            component="form"
-            onSubmit={handleSubmit}
-            sx={{ maxWidth: 400, mx: "auto", mt: 4 }}>
-            <Typography
-                variant="h4"
-                content="create a new todo"
-            >
-                create a new todo
-            </Typography>
-            <TextField
-                label="Title"
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-                required
-                fullWidth
-                margin="normal"
-            />
+        <>
+            <Box>
+                <Navbar/>
+            </Box>
+            <Box
+                component="form"
+                onSubmit={handleSubmit}
+                sx={{ maxWidth: 400, mx: "auto", mt: 4 }}>
+                <Typography
+                    variant="h4"
+                    content="create a new todo"
+                >
+                    create a new todo
+                </Typography>
+                <TextField
+                    label="Title"
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
+                    required
+                    fullWidth
+                    margin="normal"
+                />
 
-            <TextField
-                label="Description"
-                value={description}
-                onChange={(e) => setDescription(e.target.value)}
-                fullWidth
-                margin="normal"
-                multiline
-                rows={3}
-            />
+                <TextField
+                    label="Description"
+                    value={description}
+                    onChange={(e) => setDescription(e.target.value)}
+                    fullWidth
+                    margin="normal"
+                    multiline
+                    rows={3}
+                />
 
-            <FormControlLabel
-                control={
-                    <Checkbox
-                        checked={checked}
-                        onChange={(e) => setChecked(e.target.checked)}
-                    />
+                <FormControlLabel
+                    control={
+                        <Checkbox
+                            checked={checked}
+                            onChange={(e) => setChecked(e.target.checked)}
+                        />
+                    }
+                    label="is completed"
+                />
+
+                <Button
+                    type="submit"
+                    variant="contained"
+                    sx={{ mt: 2 }}
+                    disabled={!title}
+               >
+                    Submit
+                </Button>
+                {
+                    success && (
+                        <Typography
+                            variant="body1"
+                            component="p"
+                            className="text-green-500"
+                        >
+                            successfully created todo
+                        </Typography>
+                    )
                 }
-                label="is completed"
-            />
-
-            <Button
-                type="submit"
-                variant="contained"
-                sx={{ mt: 2 }}
-                disabled={!title}
-           >
-                Submit
-            </Button>
-            {
-                success && (
-                    <Typography
-                        variant="body1"
-                        component="p"
-                        className="text-green-500"
-                    >
-                        successfully created todo
-                    </Typography>
-                )
-            }
-            {
-                error && (
-                    <Typography
-                        variant="body1"
-                        component="p"
-                        className="text-red-600"
-                    >
-                        an error happened during creation
-                    </Typography>
-                )
-            }
-        </Box>
+                {
+                    error && (
+                        <Typography
+                            variant="body1"
+                            component="p"
+                            className="text-red-600"
+                        >
+                            an error happened during creation
+                        </Typography>
+                    )
+                }
+            </Box>
+        </>
     );
 }

@@ -1,12 +1,19 @@
 import React from "react"
-import {IToDo} from "@/app/src/todo";
+import {Box} from "@mui/material";
+import Navbar from "@/app/components/navbar";
 
 
 
 
-function ToDo(params: IToDo): React.ReactElement {
+function ToDo(): React.ReactElement {
     return (
         <>
+            <Box>
+                <Navbar/>
+            </Box>
+            <Box>
+
+            </Box>
         </>
     )
 }

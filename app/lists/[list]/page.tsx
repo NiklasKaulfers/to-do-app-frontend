@@ -1,14 +1,20 @@
 'use client'
 import React from "react";
 import { DataGrid } from '@mui/x-data-grid';
-import {IListWithToDos} from "@/app/src/list";
-import {Typography} from "@mui/material";
+import {Box, Typography} from "@mui/material";
+import Navbar from "@/app/components/navbar";
 
-
+interface IListWithToDos {
+    id: string;
+    name: string;
+}
 
 function List(params: IListWithToDos): React.ReactElement {
     return (
         <>
+            <Box>
+                <Navbar/>
+            </Box>
             <Typography variant="h4" component="div">{params.name}</Typography>
             <Typography variant="overline">{params.id}</Typography>
             <DataGrid

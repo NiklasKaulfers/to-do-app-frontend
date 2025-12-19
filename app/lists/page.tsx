@@ -1,9 +1,14 @@
 import React from "react";
 import Link from "next/link";
+import {Box} from "@mui/material";
+import Navbar from "@/app/components/navbar";
 
 export function Lists(): React.ReactElement {
     return (
         <>
+            <Box>
+                <Navbar/>
+            </Box>
             <h1>Hello world</h1>
             <Link href={{
                 pathname: "/lists/123",
