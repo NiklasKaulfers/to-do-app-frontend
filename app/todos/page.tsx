@@ -7,6 +7,7 @@ import {
     Button,
     Box, Typography,
 } from "@mui/material";
+import * as uuid from 'uuid';
 
 export default function ToDo() {
     const [title, setTitle] = useState("");
@@ -19,6 +20,8 @@ export default function ToDo() {
 
     const handleSubmit = async (event: FormEvent) => {
         event.preventDefault();
+
+        const id = uuid.v6();
 
         setLoading(true);
         setError("");
@@ -45,7 +48,6 @@ export default function ToDo() {
             setTitle("");
             setDescription("");
             setChecked(false);
-
         } catch (error: unknown) {
             if (error instanceof Error) {
                 setError(error.message)
@@ -103,6 +105,28 @@ export default function ToDo() {
             >
                 Submit
             </Button>
+            {
+                success && (
+                    <Typography
+                        variant="body1"
+                        component="p"
+                        className="text-green-500"
+                    >
+                        successfully created todo
+                    </Typography>
+                )
+            }
+            {
+                error && (
+                    <Typography
+                        variant="body1"
+                        component="p"
+                        className="text-red-600"
+                    >
+                        an error happened during creation
+                    </Typography>
+                )
+            }
         </Box>
     );
 }
