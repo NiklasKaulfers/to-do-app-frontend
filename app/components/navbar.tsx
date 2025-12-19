@@ -1,4 +1,6 @@
+'use client'
 import {AppBar, Box, Button, IconButton, Toolbar, Typography} from "@mui/material";
+import Link from "next/link";
 
 export default function  Navbar() {
     return (
@@ -13,7 +15,7 @@ export default function  Navbar() {
                         sx={{ mr: 2 }}
                     >
                     </IconButton>
-                    <Button href="/" color="inherit" component="div" sx={{ flexGrow: 1 }}>
+                    <Button href="/" color="inherit" component={Link} sx={{ flexGrow: 1 }}>
                         <Typography  variant="h6" sx={{ flexGrow: 1 }}>
                             to do app
                         </Typography>

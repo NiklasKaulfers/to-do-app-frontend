@@ -1,3 +1,4 @@
+'use client'
 import {AuthContextProps} from "react-oidc-context";
 import AuthError from "@/app/errors/auth-error";
 
