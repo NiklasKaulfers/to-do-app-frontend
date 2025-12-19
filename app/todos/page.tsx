@@ -28,17 +28,19 @@ export default function ToDo() {
         setSuccess(false);
 
         try {
-            const response = await fetch("/api/submit", {
+            const response = await fetch("https://3ypk90fn88.execute-api.eu-central-1.amazonaws.com/prod/ToDo", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
-                    title,
+                    toDoId: id,
+                    title: title,
                     description: description || undefined,
-                    checked,
+                    isCompleted: checked,
                 }),
             });
+            console.dir(response);
             if (!response.ok) {
                 const message = await response.text();
                 throw new Error(message || `Request failed (${response.status})`);
