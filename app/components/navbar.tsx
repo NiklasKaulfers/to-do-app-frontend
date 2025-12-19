@@ -13,9 +13,11 @@ export default function  Navbar() {
                         sx={{ mr: 2 }}
                     >
                     </IconButton>
-                    <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                        to do app
-                    </Typography>
+                    <Button href="/" color="inherit" component="div" sx={{ flexGrow: 1 }}>
+                        <Typography  variant="h6" sx={{ flexGrow: 1 }}>
+                            to do app
+                        </Typography>
+                    </Button>
                     <Button href="/todos" color="inherit">todos</Button>
                     <Button href="/lists" color="inherit">lists</Button>
                     <Button color="inherit">logout</Button>
