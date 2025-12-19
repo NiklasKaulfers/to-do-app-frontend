@@ -1,5 +1,5 @@
 import React from "react"
-import {IToDo} from "@/src/todo";
+import {IToDo} from "@/app/src/todo";
 
 
 

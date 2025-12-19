@@ -1,5 +1,5 @@
 import {AuthContextProps} from "react-oidc-context";
-import AuthError from "@/src/errors/auth-error";
+import AuthError from "@/app/errors/auth-error";
 
 export default class AuthHandler {
     protected static auth: AuthContextProps | undefined;

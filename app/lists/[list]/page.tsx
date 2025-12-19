@@ -1,7 +1,7 @@
 'use client'
 import React from "react";
 import { DataGrid } from '@mui/x-data-grid';
-import {IListWithToDos} from "@/src/list";
+import {IListWithToDos} from "@/app/src/list";
 import {Typography} from "@mui/material";
 
 
