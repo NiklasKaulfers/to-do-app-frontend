@@ -1,6 +1,6 @@
 'use client'
-import {AuthContextProps} from "react-oidc-context";
-import AuthError from "@/app/errors/auth-error";
+import {type AuthContextProps} from "react-oidc-context";
+import AuthError from "../errors/auth-error.tsx";
 
 export default class AuthHandler {
     protected static auth: AuthContextProps | undefined;
