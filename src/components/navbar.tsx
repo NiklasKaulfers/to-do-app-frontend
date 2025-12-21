@@ -1,7 +1,5 @@
 import {AppBar, Box, Button, IconButton, Toolbar, Typography} from "@mui/material";
-
-
-
+import AuthHandler from "../services/auth-service.tsx";
 
 export default function  Navbar() {
     return (
@@ -23,7 +21,7 @@ export default function  Navbar() {
                     </Button>
                     <Button href="/todos" color="inherit">todos</Button>
                     <Button href="/lists" color="inherit">lists</Button>
-                    <Button color="inherit">logout</Button>
+                    <Button color="inherit" onClick={AuthHandler.signOut}>logout</Button>
                 </Toolbar>
             </AppBar>
         </Box>

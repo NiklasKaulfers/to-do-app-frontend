@@ -2,17 +2,12 @@ import './App.css'
 import {Box, Button, Typography} from "@mui/material";
 import Navbar from "./components/navbar.tsx";
 import {type AuthContextProps, useAuth} from "react-oidc-context";
+import AuthHandler from "./services/auth-service.tsx";
 
 function App() {
 
     const auth: AuthContextProps = useAuth();
-
-    const signOutRedirect = () => {
-        const clientId = "74f06735fgqvbmqpt9g8t4f4p2";
-        const logoutUri = import.meta.env.VITE_REDIRECT_URL!;
-        const cognitoDomain = "https://cognito-idp.eu-central-1.amazonaws.com/eu-central-1_W75hDAqdT";
-        globalThis.location.href = `${cognitoDomain}/logout?client_id=${clientId}&logout_uri=${encodeURIComponent(logoutUri)}`;
-    };
+    AuthHandler.setAuthContext(auth);
 
     if (auth.isLoading) {
         return <div>Loading...</div>;
@@ -65,7 +60,7 @@ function App() {
     return (
         <div>
             <button onClick={() => auth.signinRedirect()}>Sign in</button>
-            <button onClick={() => signOutRedirect()}>Sign out</button>
+            <button onClick={() => AuthHandler.signOut()}>Sign out</button>
         </div>
     );
 }
