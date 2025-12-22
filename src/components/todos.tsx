@@ -8,6 +8,8 @@ import {
 } from "@mui/material";
 import * as uuid from 'uuid';
 import {useMediaQuery} from "@mui/system";
+import AuthHandler from "../services/auth-service.tsx";
+import AuthError from "../errors/auth-error.tsx";
 
 export default function Todos() {
     const [title, setTitle] = useState("");
@@ -22,17 +24,22 @@ export default function Todos() {
     const handleSubmit = async (event: FormEvent) => {
         event.preventDefault();
 
-        const id = uuid.v6();
+        const id: string = uuid.v6();
+
+        const idToken: string | undefined = AuthHandler.getAuthContext().user?.id_token;
+
+        if (!idToken) throw new AuthError("Invalid Auth Token");
 
         setLoading(true);
         setError("");
         setSuccess(false);
 
         try {
-            const response = await fetch("https://3ypk90fn88.execute-api.eu-central-1.amazonaws.com/prod/ToDo", {
+            const response = await fetch(import.meta.env.VITE_API_URL! + "/ToDo", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
+                    "Authorization": idToken
                 },
                 body: JSON.stringify({
                     toDoId: id,
