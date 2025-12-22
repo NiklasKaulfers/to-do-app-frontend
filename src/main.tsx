@@ -2,7 +2,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
-import { AuthProvider } from "react-oidc-context";
+import {AuthProvider} from "react-oidc-context";
+import {BrowserRouter} from "react-router-dom";
 
 const cognitoAuthConfig = {
     authority: "https://cognito-idp.eu-central-1.amazonaws.com/eu-central-1_vgKVFklVc",
@@ -18,7 +19,9 @@ const root = ReactDOM.createRoot(document.getElementById("root")!);
 root.render(
     <React.StrictMode>
         <AuthProvider {...cognitoAuthConfig}>
-            <App />
+            <BrowserRouter>
+                <App/>
+            </BrowserRouter>
         </AuthProvider>
     </React.StrictMode>
 );
