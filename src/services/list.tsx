@@ -1,17 +1,15 @@
-import type Todo from "./todo.tsx";
-
 
 interface ListProps {
     id: string;
     name: string;
-    todos?: Todo[]
+    todos?: string[]
 }
 
 
 export default class List {
     id: string;
     name: string;
-    todos: Todo[];
+    todos: string[];
 
 
     constructor(props: ListProps) {
@@ -20,7 +18,7 @@ export default class List {
         this.todos = props.todos ?? [];
     }
 
-    addTodo(todo: Todo){
-        this.todos.push(todo);
+    addTodo(todoId: string){
+        this.todos.push(todoId);
     }
 }

@@ -5,6 +5,7 @@ interface TodoProps {
     description: string;
     id: string;
     isCompleted: boolean;
+    inListsId?: string[];
 }
 
 
@@ -13,16 +14,19 @@ export default class Todo {
     description: string;
     id: string;
     isCompleted: boolean;
+    inLists: string[]
 
     constructor(props: TodoProps) {
         this.title = props.title;
         this.description = props.description;
         this.id = props.id;
         this.isCompleted = props.isCompleted;
+        this.inLists = props.inListsId ?? []
     }
 
-
-
+    protected addToList(list: string) {
+        this.inLists.push(list);
+    }
 }
 
 export function toDoFromGetTodoResponse(getTodoResponse: GetToDoResponse): Todo {
