@@ -9,6 +9,9 @@ import MainArea from "./components/main-area.tsx";
 import TodoMain from "./components/todos/todo-main.tsx";
 import GetTodos from "./components/todos/get-todos.tsx";
 import TodoDetails from "./components/todos/todo-details.tsx";
+import CreateList from "./components/lists/create-list.tsx";
+import ViewList from "./components/lists/view-lists.tsx";
+import ListDetails from "./components/lists/list-details.tsx";
 
 function App() {
 
@@ -34,6 +37,9 @@ function App() {
                     <Route path="/todos/view" element={<GetTodos/>}></Route>
                     <Route path="todos/:id" element={<TodoDetails/>}></Route>
                     <Route path="/lists" element={<Lists/>}/>
+                    <Route path="/lists/new" element={<CreateList/>}/>
+                    <Route path="/lists/view" element={<ViewList/>}/>
+                    <Route path="/lists/:id" element={<ListDetails/>}/>
                 </Routes>
             </>
         );
