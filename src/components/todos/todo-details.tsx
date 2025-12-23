@@ -1,11 +1,12 @@
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import {type FormEvent, useEffect, useState} from "react";
-import {getTodo} from "../../services/api/todos.tsx";
+import {deleteTodo, getTodo} from "../../services/api/todos.tsx";
 import Todo from "../../services/todo.tsx";
 import AuthHandler from "../../services/auth-service.tsx";
 import {Box, Button, Checkbox, FormControlLabel, TextField, Typography} from "@mui/material";
 
 export default function TodoDetails() {
+    const navigate = useNavigate();
     const {id} = useParams<{ id: string }>();
     const [todo, setTodo] = useState<Todo>();
 
@@ -78,6 +79,25 @@ export default function TodoDetails() {
         setSuccess(true);
     }
 
+    const handleDelete = async () => {
+        const idToken: string | undefined = AuthHandler.getAuthContext().user?.id_token;
+
+        if (!idToken) {
+            return;
+        }
+
+        if (!id) {
+            return;
+        }
+
+        const response = await deleteTodo(idToken, id);
+        if (response instanceof Error) {
+            return;
+        } else {
+            navigate("/todos/view")
+        }
+    }
+
     return (
 
         <Box
@@ -128,7 +148,7 @@ export default function TodoDetails() {
                 sx={{mt: 2}}
                 disabled={!title}
             >
-                Submit
+                update
             </Button>
             {
                 success && (
@@ -163,6 +183,22 @@ export default function TodoDetails() {
                     </Typography>
                 )
             }
+            <Button
+            variant="contained"
+            color="secondary"
+            sx={{mt: 2}}
+            href="/todos/view"
+            >
+                back to view
+            </Button>
+            <Button
+            variant="contained"
+            color="error"
+            sx={{mt: 2}}
+            onClick={handleDelete}
+            >
+                delete
+            </Button>
         </Box>
 
     )

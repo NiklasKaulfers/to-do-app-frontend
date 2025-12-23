@@ -64,3 +64,20 @@ export async function getTodo(token: string, id: string): Promise<Todo> {
         description: responseJson.description!,
     });
 }
+
+export async function deleteTodo(token: string, id: string): Promise<boolean | Error> {
+    const response = await fetch(import.meta.env.VITE_API_URL! + "/ToDo/" + id,
+        {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": token
+            }
+        }
+    );
+    if (response.status !== 204) {
+        console.dir(response);
+        return new Error(`Request failed (${response.status})`);
+    }
+    return true;
+}
