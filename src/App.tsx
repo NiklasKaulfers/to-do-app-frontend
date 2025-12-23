@@ -3,9 +3,11 @@ import Navbar from "./components/navbar.tsx";
 import {type AuthContextProps, useAuth} from "react-oidc-context";
 import AuthHandler from "./services/auth-service.tsx";
 import {Route, Routes} from "react-router-dom";
-import Todos from "./components/todos.tsx";
-import Lists from "./components/lists.tsx";
+import CreateTodo from "./components/todos/create-todo.tsx";
+import Lists from "./components/lists/lists.tsx";
 import MainArea from "./components/main-area.tsx";
+import TodoMain from "./components/todos/todo-main.tsx";
+import GetTodos from "./components/todos/get-todos.tsx";
 
 function App() {
 
@@ -26,7 +28,9 @@ function App() {
                 <Navbar />
                 <Routes>
                     <Route path="/" element={<MainArea/>}/>
-                    <Route path="/todos" element={<Todos/>}/>
+                    <Route path="/todos" element={<TodoMain/>}/>
+                    <Route path="/todos/new" element={<CreateTodo/>}></Route>
+                    <Route path="/todos/view" element={<GetTodos/>}></Route>
                     <Route path="/lists" element={<Lists/>}/>
                 </Routes>
             </>

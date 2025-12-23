@@ -8,10 +8,10 @@ import {
 } from "@mui/material";
 import * as uuid from 'uuid';
 import {useMediaQuery} from "@mui/system";
-import AuthHandler from "../services/auth-service.tsx";
-import AuthError from "../errors/auth-error.tsx";
+import AuthHandler from "../../services/auth-service.tsx";
+import AuthError from "../../errors/auth-error.tsx";
 
-export default function Todos() {
+export default function CreateTodo() {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [checked, setChecked] = useState(false);
