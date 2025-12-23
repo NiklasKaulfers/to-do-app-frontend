@@ -35,7 +35,7 @@ function App() {
                     <Route path="/todos" element={<TodoMain/>}/>
                     <Route path="/todos/new" element={<CreateTodo/>}></Route>
                     <Route path="/todos/view" element={<GetTodos/>}></Route>
-                    <Route path="todos/:id" element={<TodoDetails/>}></Route>
+                    <Route path="/todos/:id" element={<TodoDetails/>}></Route>
                     <Route path="/lists" element={<Lists/>}/>
                     <Route path="/lists/new" element={<CreateList/>}/>
                     <Route path="/lists/view" element={<ViewList/>}/>

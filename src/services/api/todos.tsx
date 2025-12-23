@@ -15,22 +15,13 @@ export interface GetToDoResponse {
     }
 }
 
-export interface GetTodosResponse {
-    "Id": string
-    "description": string
-    "title": string
-    "isCompleted": boolean
-}
-
-export async  function getAllTodos(token: string): Promise<GetToDoResponse[]> {
-    const response = await fetch(import.meta.env.VITE_API_URL! + "/ToDos",
-        {
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": token
-            }
+export async function getAllTodos(token: string): Promise<GetToDoResponse[]> {
+    const response = await fetch(import.meta.env.VITE_API_URL! + "/ToDos", {
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": token
         }
-    );
+    });
     console.dir(response);
     if (response.status !== 200) {
         const message = await response.text();
