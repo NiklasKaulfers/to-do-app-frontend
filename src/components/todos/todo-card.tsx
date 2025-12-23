@@ -1,4 +1,4 @@
-import {Card, CardContent, Typography} from "@mui/material";
+import {Button, Card, CardContent, Typography} from "@mui/material";
 import Todo from "../../services/todo.tsx";
 
 
@@ -17,13 +17,16 @@ export function TodoCard({todo}: TodoCardProps) {
                     title: {todo.title}
                 </Typography>
                 <Typography sx={{color: 'text.secondary', mb: 1.5}}>adjective</Typography>
-                {(todo.description || todo.description !== "")
+                {(todo.description && todo.description !== "")
                     &&
                     <Typography variant="body2">
-                        {todo.description}
+                        {todo.description ?? ""}
                     </Typography>
                 }
             </CardContent>
+            <Button variant="contained" color="secondary" href={`/todos/` + todo.id}>
+                go to {todo.title}
+            </Button>
         </Card>
     )
 }

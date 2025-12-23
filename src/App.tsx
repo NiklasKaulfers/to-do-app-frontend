@@ -8,6 +8,7 @@ import Lists from "./components/lists/lists.tsx";
 import MainArea from "./components/main-area.tsx";
 import TodoMain from "./components/todos/todo-main.tsx";
 import GetTodos from "./components/todos/get-todos.tsx";
+import TodoDetails from "./components/todos/todo-details.tsx";
 
 function App() {
 
@@ -31,6 +32,7 @@ function App() {
                     <Route path="/todos" element={<TodoMain/>}/>
                     <Route path="/todos/new" element={<CreateTodo/>}></Route>
                     <Route path="/todos/view" element={<GetTodos/>}></Route>
+                    <Route path="todos/:id" element={<TodoDetails/>}></Route>
                     <Route path="/lists" element={<Lists/>}/>
                 </Routes>
             </>

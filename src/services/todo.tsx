@@ -1,4 +1,4 @@
-import type {GetTodoResponse} from "./api/todos.tsx";
+import type {GetToDoResponse} from "./api/todos.tsx";
 
 interface TodoProps {
     title: string;
@@ -25,7 +25,7 @@ export default class Todo {
 
 }
 
-export function toDoFromGetTodoResponse(getTodoResponse: GetTodoResponse): Todo {
+export function toDoFromGetTodoResponse(getTodoResponse: GetToDoResponse): Todo {
     return new Todo({
         id: getTodoResponse.Id.S,
         description: getTodoResponse.description.S,

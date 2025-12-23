@@ -1,4 +1,4 @@
-import {getAllTodos, type GetTodoResponse} from "../../services/api/todos.tsx";
+import {getAllTodos, type GetToDoResponse} from "../../services/api/todos.tsx";
 import {useEffect, useState} from "react";
 import {toDoFromGetTodoResponse} from "../../services/todo.tsx";
 import {Typography} from "@mui/material";
@@ -6,7 +6,7 @@ import TodoCard from "./todo-card.tsx";
 import AuthHandler from "../../services/auth-service.tsx";
 
 export function GetTodos() {
-    const [todos, setTodos] = useState<GetTodoResponse[]>([]);
+    const [todos, setTodos] = useState<GetToDoResponse[]>([]);
 
     useEffect(() => {
         (async () => {
@@ -29,7 +29,7 @@ export function GetTodos() {
                         color="textPrimary">
                 all todos
             </Typography>
-            {todos.map((todo: GetTodoResponse) =>
+            {todos.map((todo: GetToDoResponse) =>
                 (
                     <TodoCard
                         key={todo.Id.S}
