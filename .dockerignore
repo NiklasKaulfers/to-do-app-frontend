@@ -1,0 +1,29 @@
+# Node and build artifacts
+node_modules
+dist
+.env
+.env.*
+*.log
+npm-debug.log*
+pnpm-lock.yaml
+package-lock.json
+
+# VCS
+.git
+.gitignore
+
+# OS files
+.DS_Store
+
+# Editor
+.vscode
+.idea
+
+# Coverage / reports
+coverage
+reports
+
+# Docker
+Dockerfile*
+.dockerignore
+
