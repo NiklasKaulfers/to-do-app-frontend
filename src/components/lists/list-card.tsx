@@ -12,23 +12,23 @@ export default function ListCard({list}: Readonly<ListCardProps>) {
         <Card>
             <CardContent>
                 <Typography gutterBottom sx={{color: 'text.secondary', fontSize: 14}}>
-                    id: {list?.id}
+                    id: {list?.id.S}
                 </Typography>
                 <Typography variant="h5" component="div">
-                    name: {list?.name}
+                    name: {list?.name.S}
                 </Typography>
             </CardContent>
             <Button variant="contained" color="secondary" href={`/lists/` + list?.id}>
-                go to {list?.name}
+                go to {list?.name.S}
             </Button>
                 {
                     (list?.inLists) &&
                     <CardContent>
-                        {list.inLists.map((listId: string) => {
+                        {list.inLists.SS.map((listId: string) => {
                             return (
                                 <Typography
                                     variant="body1"
-                                    onClick={ () => navigate("/todos/" + listId)}
+                                    onClick={() => navigate("/todos/" + listId)}
                                 >
                                     {listId}
                                 </Typography>

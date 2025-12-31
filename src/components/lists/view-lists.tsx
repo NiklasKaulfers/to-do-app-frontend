@@ -22,6 +22,7 @@ export default function ViewList() {
                 setLists([]);
                 return;
             }
+            console.log("Lists", getListsResponse);
             setLists(getListsResponse);
         })();
     }, []);
@@ -33,13 +34,14 @@ export default function ViewList() {
             >
                 all lists
             </Typography>
-            {lists.map((list: GetListsResponse) =>
-                (
+            {Array.isArray(lists) && lists.map((list: GetListsResponse) => {
+                return (
                     <ListCard
-                        key={list.id}
-                        list={list} />
-                ))
-            }
+                        key={list.id.S}
+                        list={list}
+                    />
+                )
+            })}
         </>
     )
 }

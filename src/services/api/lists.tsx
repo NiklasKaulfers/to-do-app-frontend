@@ -1,7 +1,13 @@
 export interface GetListsResponse {
-    id: string;
-    name: string;
-    inLists?: string[]
+    id: {
+        S: string
+    };
+    name: {
+        S: string
+    };
+    inLists?: {
+        SS: string[]
+    }
 }
 
 
