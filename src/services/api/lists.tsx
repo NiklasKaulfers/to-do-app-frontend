@@ -5,7 +5,7 @@ export interface GetListsResponse {
     name: {
         S: string
     };
-    inLists?: {
+    ToDos?: {
         SS: string[]
     }
 }

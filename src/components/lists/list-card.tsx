@@ -21,21 +21,23 @@ export default function ListCard({list}: Readonly<ListCardProps>) {
             <Button variant="contained" color="secondary" href={`/lists/` + list?.id}>
                 go to {list?.name.S}
             </Button>
-                {
-                    (list?.inLists) &&
-                    <CardContent>
-                        {list.inLists.SS.map((listId: string) => {
-                            return (
-                                <Typography
-                                    variant="body1"
-                                    onClick={() => navigate("/todos/" + listId)}
-                                >
-                                    {listId}
-                                </Typography>
-                            )
-                        })}
-                    </CardContent>
-                }
+            {
+                (list?.ToDos) &&
+                <CardContent>
+                    {list.ToDos.SS.map((toDoId: string) => {
+                        return (
+                            <Button
+                                type="button"
+                                variant="text"
+                                onClick={() => navigate("/todos/" + toDoId)}
+                            >
+                                {toDoId}
+                            </Button>
+                        )
+
+                    })}
+                </CardContent>
+            }
         </Card>
     )
 }
