@@ -21,6 +21,7 @@ export default function  Navbar() {
                     </Button>
                     <Button href="/todos" color="inherit">todos</Button>
                     <Button href="/lists" color="inherit">lists</Button>
+                    <Button href="/attach" color="inherit">attach</Button>
                     <Button color="inherit" onClick={AuthHandler.signOut}>logout</Button>
                 </Toolbar>
             </AppBar>

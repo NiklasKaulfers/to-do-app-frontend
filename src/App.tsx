@@ -12,6 +12,7 @@ import TodoDetails from "./components/todos/todo-details.tsx";
 import CreateList from "./components/lists/create-list.tsx";
 import ViewList from "./components/lists/view-lists.tsx";
 import ListDetails from "./components/lists/list-details.tsx";
+import AttachTodoToList from "./components/attach/attach-todo-to-list.tsx";
 
 function App() {
 
@@ -40,6 +41,7 @@ function App() {
                     <Route path="/lists/new" element={<CreateList/>}/>
                     <Route path="/lists/view" element={<ViewList/>}/>
                     <Route path="/lists/:id" element={<ListDetails/>}/>
+                    <Route path="/attach" element={<AttachTodoToList/>}/>
                 </Routes>
             </>
         );
