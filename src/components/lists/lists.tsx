@@ -12,16 +12,16 @@ export function Lists() {
             <Button
                 variant="contained"
                 color="primary"
-                href="/lists/view"
+                href="/lists/new"
             >
-                view lists
+                create list
             </Button>
             <Button
                 variant="contained"
                 color="primary"
-                href="/lists/new"
+                href="/lists/view"
             >
-                create list
+                view lists
             </Button>
         </>
     )
